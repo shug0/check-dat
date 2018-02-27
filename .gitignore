@@ -21,4 +21,4 @@ yarn-debug.log*
 yarn-error.log*
 
 firebaseConfig.js
-.idea/workspace.xml
+.idea/
