@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import styled, { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import firebase from 'firebase'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
