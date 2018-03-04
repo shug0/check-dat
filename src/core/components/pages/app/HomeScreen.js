@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react'
-import PropTypes from "prop-types"
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import FriendsList from 'core/components/modules/FriendsList/FriendsListContainer'
-import {theme} from "core/constants/theme"
+import FriendsList from 'core/components/modules/Friends/FriendsList/FriendsListContainer'
+import { theme } from 'core/constants/theme'
 
 const Wrapper = styled.section`
   display: flex;
@@ -26,7 +26,7 @@ class HomeScreen extends PureComponent {
       <Wrapper>
         <FriendsList user={user} />
         <Content>
-          <h1>Ici y aura les liens / musiques et autres trucs 😊</h1>
+          <h1>Ici y aura les liens / musiques et autres trucs</h1>
         </Content>
       </Wrapper>
     )

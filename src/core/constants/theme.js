@@ -8,6 +8,8 @@ export const theme = {
   },
 
   colors: {
+    background: '#fafafa',
+
     fonts: {
       darkGrey: '#263238',
     },
@@ -32,7 +34,12 @@ injectGlobal`
 
   body {
     font-family: 'Open Sans', sans-serif;
+    background: ${theme.colors.background};
     color: ${theme.colors.fonts.darkGrey};
+  }
+  
+  h1, h2, h3 {
+    font-weight: 100;
   }
   
   *, *:before, *:after {

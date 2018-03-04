@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import { PureComponent } from 'react'
 import firebase from 'firebase'
 
 class InjectUserRenderHOC extends PureComponent {

@@ -4,12 +4,12 @@ import { Switch, Route } from 'react-router-dom'
 
 import NotFoundScreen from 'core/components/pages/misc/NotFoundScreen'
 import HomeScreen from 'core/components/pages/app/HomeScreen'
-import FriendsScreen from 'core/components/pages/app/FriendsScreen'
+import FriendsScreenContainer from 'core/components/modules/Friends/FriendsScreen/FriendsScreenContainer'
 
 const SecuredRoutes = ({ user }) => (
   <Switch>
-    <Route path='/' render={() => <HomeScreen user={user} />}/>
-    <Route path='/friends' render={() => <FriendsScreen user={user} />}/>
+    <Route exact path='/' render={() => <HomeScreen user={user} />}/>
+    <Route path='/friends' render={() => <FriendsScreenContainer user={user} />}/>
     <Route component={NotFoundScreen}/>
   </Switch>
 )

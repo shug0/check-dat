@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 import theme from 'core/constants/theme'
-import Icon from 'core/components/common/Icon'
+import Icon from 'core/components/common/Icon/index'
 
 const AddFriendButtonWrapper = styled(Link)`
   display: flex;

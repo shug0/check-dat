@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { theme } from "core/constants/theme"
 
 const LoadingWrapper = styled.div`
   height: 100%;
@@ -8,7 +7,6 @@ const LoadingWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: ${theme.colors.primary};
 `
 
 class LoadingScreen extends Component {
