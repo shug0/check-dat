@@ -1,21 +1,33 @@
 import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types"
 import styled from 'styled-components'
 
-const Wrapper = styled.div`
+import FriendsList from 'core/components/modules/FriendsList/FriendsListContainer'
+import {theme} from "core/constants/theme"
+
+const Wrapper = styled.section`
+  display: flex;
+  height: calc(100% - ${theme.comps.headerBar.h});
+`
+
+const Content = styled.div`
+  padding: 2rem;
 `
 
 class HomeScreen extends PureComponent {
   static propTypes = {
+    user: PropTypes.object.isRequired
   }
 
   render () {
+    const { user } = this.props
 
     return (
       <Wrapper>
-        <h1>
-          Welcome
-        </h1>
+        <FriendsList user={user} />
+        <Content>
+          <h1>Ici y aura les liens / musiques et autres trucs 😊</h1>
+        </Content>
       </Wrapper>
     )
   }

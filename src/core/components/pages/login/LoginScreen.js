@@ -1,27 +1,60 @@
 import React, { PureComponent } from 'react'
 import styled from 'styled-components'
-import firebase from 'firebase'
+import { key } from 'styled-theme'
+import PropTypes from 'prop-types'
 
-const provider = new firebase.auth.GoogleAuthProvider();
-provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+const Wrapper = styled.div`
+  color: ${key('colors.accent')};
+  background-color: ${key('colors.primary')};
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
 
-const Wrapper = styled.div``
+const LoginTitle = styled.h1`
+  font-weight: 300;
+  font-size: 4rem;
+  margin-bottom: 3rem;
+`
+
+const LoginButton = styled.button`
+  border: 0;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  color: ${key('colors.primary')};
+  background-color: ${key('colors.accent')};
+  border-radius: 5rem;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 1rem;
+  transition: ease all 0.2s;
+  
+  &:hover {
+    padding: 2rem 4rem;
+  }
+`
 
 class LoginScreen extends PureComponent {
-  handleLogin = () => {
-    firebase.auth().signInWithPopup(provider).then(function(result) {
-    }).catch(function(error) {
-      console.log(error)
-    })
+  static propTypes = {
+    handleGoogleLogin: PropTypes.func.isRequired,
+    handleTwitterLogin: PropTypes.func.isRequired,
   }
 
   render () {
     return (
       <Wrapper>
-        <h1>Login</h1>
-        <button onClick={this.handleLogin}>
-          Login
-        </button>
+        <LoginTitle>
+          Check Dat !
+        </LoginTitle>
+        <LoginButton onClick={this.props.handleGoogleLogin}>
+          Google Signin
+        </LoginButton>
+
+        <LoginButton onClick={this.props.handleTwitterLogin}>
+          Twitter Signin
+        </LoginButton>
       </Wrapper>
     )
   }
