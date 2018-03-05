@@ -26,8 +26,27 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   * [ ] Give feedback on a item
   * [ ] Tag a item 
   * [ ] Archive a item
+- [ ] i18n 
+  * [ ] French
+  * [ ] English
 
 ### Design
 - [ ] Finding Inspirations 
 - [ ] Fonts
 - [ ] Colors Scheme
+
+
+## Databse Scheme
+The app is using firebase for storing data, wich is implicating somes modeling constraints.
+The current scheme is :
+
+- users
+  * full : { ...fullUserInfos }
+  * short: { id: 'username' }
+- friends : {
+  * user1: {[ { ...useFullFriendInfo } ]}
+  * user2: {[ { ...useFullFriendInfo } ]}
+- posts : **WIP**
+  
+  
+  
