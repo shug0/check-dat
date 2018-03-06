@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "firebase": "^4.10.1",
+    "lodash": "^4.17.5",
     "normalize.css": "^8.0.0",
     "prop-types": "^15.6.1",
     "re-base": "^3.2.2",

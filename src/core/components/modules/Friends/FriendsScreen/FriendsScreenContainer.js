@@ -3,6 +3,7 @@ import MyFirebase from 'core/firebase/MyFirebase'
 import PropTypes from 'prop-types'
 
 import FriendsScreen from './FriendsScreen'
+import { searchUser } from "core/firebase/actions/friendsActions"
 
 const rebase = MyFirebase.rebase
 
@@ -13,6 +14,13 @@ class FriendsScreenContainer extends PureComponent {
 
   state = {
     friends: []
+  }
+
+  handleFriendSearch = (value) => {
+    console.log('Searching...')
+    searchUser(value)
+      .then(snap => console.log(snap))
+      .catch(error => console.log(error))
   }
 
   componentDidMount() {
@@ -30,6 +38,7 @@ class FriendsScreenContainer extends PureComponent {
       <FriendsScreen
         user={this.props.user}
         friends={this.state.friends}
+        handleFriendSearch={this.handleFriendSearch}
       />
     )
   }

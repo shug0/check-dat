@@ -8,7 +8,8 @@ export const theme = {
   },
 
   colors: {
-    background: '#fafafa',
+    background: '#eeeeee',
+    darkGrey: '#3F3F3F',
 
     fonts: {
       darkGrey: '#263238',
@@ -20,7 +21,6 @@ export const theme = {
     ikb: '#002fa7',
 
     primary: '#2e2c43',
-    lightPrimary: '#4b486e',
     accent: '#e5b01e',
   }
 }

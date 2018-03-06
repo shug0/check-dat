@@ -15,7 +15,7 @@ const AddFriendButtonWrapper = styled(Link)`
 `
 
 const AddIcon = styled(Icon)`
-  color: ${theme.colors.lightGrey};
+  color: ${theme.colors.darkGrey};
   font-size: ${theme.comps.friendsAvatar.s};
 `
 

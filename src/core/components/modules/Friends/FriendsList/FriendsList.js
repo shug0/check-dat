@@ -8,7 +8,7 @@ import AddFriendButton from "./AddFriendButton"
 const FriendListWrapper = styled.div`
   height: 100%;
   width: ${theme.comps.friendsBar.w};
-  background-color: ${theme.colors.lightPrimary};
+  background-color: white;
 `
 
 class FriendsList extends Component {

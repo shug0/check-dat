@@ -9,11 +9,11 @@ import Icon from 'core/components/common/Icon'
 
 const HeaderBarWrapper = styled.header`
   height: ${key('comps.headerBar.h')};
-  background-color: ${key('colors.primary')};
-  color: ${key('colors.accent')};
+  background-color: ${key('colors.darkGrey')};
+  color: white;
   
   & a {
-    color: ${key('colors.accent')};
+    color: white;
     text-decoration: none;
   }
 
