@@ -1,5 +1,6 @@
 # Check Dat
-## A web for sharing links & musics with your friends with a to-do style view http://check-dat.firebaseapp.com
+## A web app for sending links & musics to your friends 
+Pre-Dev Environement : http://check-dat.firebaseapp.com
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
@@ -10,9 +11,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### Stack
 - [X] React + Styled Components
 - [X] Routing (React-router v4)
-- [X] Firebase Instance management with Re-base
-- [ ] React Storybook
-- [ ] Snapshot Testing (Jest)
+- [X] Firebase + Instance management with Re-base
+- [X] React Storybook
 
 ### Features
 - [X] Login with Google/Twitter
