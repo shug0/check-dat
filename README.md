@@ -4,6 +4,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 ## TO-DO
+### Code Quality
+- [X] ESLINT w/ Standard JS
+
 ### Stack
 - [X] React + Styled Components
 - [X] Routing (React-router v4)
