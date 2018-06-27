@@ -4,8 +4,6 @@ import { key } from 'styled-theme'
 import PropTypes from 'prop-types'
 
 const Wrapper = styled.div`
-  color: ${key('colors.accent')};
-  background-color: ${key('colors.primary')};
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -15,14 +13,14 @@ const Wrapper = styled.div`
 
 const LoginTitle = styled.h1`
   font-weight: 300;
-  font-size: 4rem;
+  font-size: 3rem;
   margin-bottom: 3rem;
 `
 
 const LoginButton = styled.button`
   border: 0;
   padding: 1rem 2rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: ${key('colors.primary')};
   background-color: ${key('colors.accent')};
   border-radius: 5rem;
@@ -32,7 +30,7 @@ const LoginButton = styled.button`
   transition: ease all 0.2s;
   
   &:hover {
-    padding: 2rem 4rem;
+    transform: scale(1.1);
   }
 `
 

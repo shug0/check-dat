@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 const WrapperCard = styled.div`
   background-color: white;
-  padding: ${props => props.padding || '3rem'};
+  padding: ${props => props.padding || '2rem'};
   margin-bottom: 1rem;
 `
 

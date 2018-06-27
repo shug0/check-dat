@@ -4,14 +4,14 @@ import { storiesOf } from '@storybook/react'
 import { StoryDecorator } from 'components/stories/decorators'
 
 import user from 'mocks/user'
-import HeaderBar from './HeaderBar'
+import Avatar from './Avatar'
 
 storiesOf('Common', module)
   .addDecorator(story => (
-    <StoryDecorator withoutWrapper>
+    <StoryDecorator>
       {story()}
     </StoryDecorator>
   ))
-  .add('Header', () => (
-    <HeaderBar user={user} />
+  .add('Avatar', () => (
+    <Avatar user={user} size='50px' />
   ))
