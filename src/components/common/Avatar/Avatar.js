@@ -8,11 +8,15 @@ class Avatar extends PureComponent {
     size: PropTypes.string.isRequired
   }
 
+  static defaultProps = {
+    size: '20px'
+  }
+
   render () {
     const { user, size } = this.props
 
     return (
-      <ReactAvatar round name={user.displayName} src={user.providerUserInfo[0].photoUrl} size={size} />
+      <ReactAvatar round name={user.displayName} src={user.photoURL} size={size} />
     )
   }
 }

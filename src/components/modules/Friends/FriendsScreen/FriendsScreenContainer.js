@@ -23,7 +23,7 @@ class FriendsScreenContainer extends PureComponent {
       .catch(error => console.log(error))
   }
 
-  componentDidMount() {
+  componentDidMount () {
     const { user } = this.props
 
     rebase.syncState(`friends/${user.uid}`, {

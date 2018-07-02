@@ -50,7 +50,7 @@ class HeaderBar extends PureComponent {
     return (
       <HeaderBarWrapper>
         <Title to="/">Check Dat !</Title>
-        <span>{user.displayName}</span>
+        <Link to="/profile">{user.displayName}</Link>
         <LogoutButton name='exit_to_app' onClick={signOut} />
       </HeaderBarWrapper>
     )
