@@ -1,7 +1,7 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 
-import { StoryDecorator } from 'components/stories/decorators'
+import { StoryDecorator } from 'stories/decorators'
 import LoginScreen from './LoginScreen'
 
 const props = {

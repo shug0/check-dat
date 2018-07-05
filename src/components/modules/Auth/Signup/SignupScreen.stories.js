@@ -2,16 +2,16 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 
 import { StoryDecorator } from 'stories/decorators'
-import Card from './Card'
+import SignupScreen from './SignupScreen'
 
-storiesOf('Common', module)
+const props = {}
+
+storiesOf('Screens', module)
   .addDecorator(story => (
     <StoryDecorator>
       {story()}
     </StoryDecorator>
   ))
-  .add('Card', () => (
-    <Card>
-      Yolo
-    </Card>
+  .add('Signup', () => (
+    <SignupScreen {...props} />
   ))

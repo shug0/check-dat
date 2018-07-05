@@ -15,7 +15,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [X] React Storybook
 
 ### Features
-- [X] Login with Google/Twitter
+- [X] Auth with Google/Twitter
 - [X] Users session management | Logout
 - [ ] Friends 
   * [X] Choosing DB scheme

@@ -1,22 +1,33 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 
 import theme from 'constants/theme'
-import SignedUserTemplate from 'components/templates/SignedUserTemplate'
-import LoginContainer from 'components/pages/login/LoginContainer'
+import InjectUserRenderHOC from 'firebase/containers/InjectUserRenderHOC'
+import LoadingScreen from 'components/pages/misc/LoadingScreen'
+import SecureRoutes from './routes/SecureRoutes'
+import UnsecureRoutes from './routes/UnsecureRoutes'
 
 class App extends Component {
   render () {
     return (
-      <Router>
-        <ThemeProvider theme={theme}>
+      <ThemeProvider theme={theme}>
+        <Router>
           <Switch>
-            <Route path='/login' component={LoginContainer} />
-            <Route path='/' component={SignedUserTemplate} />
+            <InjectUserRenderHOC>
+              {(user, loading) => {
+                if (loading) return <LoadingScreen />
+
+                return user ? (
+                  <SecureRoutes user={user} />
+                ) : (
+                  <UnsecureRoutes />
+                )
+              }}
+            </InjectUserRenderHOC>
           </Switch>
-        </ThemeProvider>
-      </Router>
+        </Router>
+      </ThemeProvider>
     )
   }
 }

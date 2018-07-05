@@ -2,7 +2,8 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 
 import { StoryDecorator } from 'stories/decorators'
-import Card from './Card'
+
+import Button from './Button'
 
 storiesOf('Common', module)
   .addDecorator(story => (
@@ -10,8 +11,6 @@ storiesOf('Common', module)
       {story()}
     </StoryDecorator>
   ))
-  .add('Card', () => (
-    <Card>
-      Yolo
-    </Card>
+  .add('Button', () => (
+    <Button onClick={() => {}}>Hello</Button>
   ))

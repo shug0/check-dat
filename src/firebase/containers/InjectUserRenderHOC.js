@@ -1,7 +1,12 @@
+import PropTypes from 'prop-types'
 import { PureComponent } from 'react'
 import firebase from 'firebase'
 
 class InjectUserRenderHOC extends PureComponent {
+  static propTypes = {
+    children: PropTypes.node.isRequired
+  }
+
   state = {
     user: {},
     loading: true
@@ -9,17 +14,17 @@ class InjectUserRenderHOC extends PureComponent {
 
   unsubscriber = null
 
-  componentDidMount() {
+  componentDidMount () {
     this.unsubscriber = firebase.auth().onAuthStateChanged(user => {
       this.setState({ user, loading: false })
     })
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     this.unsubscriber()
   }
 
-  render() {
+  render () {
     const { user, loading } = this.state
     return this.props.children(user, loading)
   }
