@@ -1,5 +1,5 @@
 import React from 'react'
-import theme from 'constants/theme'
+import theme from 'app/constants/theme'
 import PropTypes from 'prop-types'
 
 import styled, { ThemeProvider } from 'styled-components'

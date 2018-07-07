@@ -1,35 +1,22 @@
-import React, { Component } from 'react'
-import { BrowserRouter as Router, Switch } from 'react-router-dom'
-import { ThemeProvider } from 'styled-components'
+import React from 'react'
 
-import theme from 'constants/theme'
-import InjectUserRenderHOC from 'firebase/containers/InjectUserRenderHOC'
-import LoadingScreen from 'components/pages/misc/LoadingScreen'
-import SecureRoutes from './routes/SecureRoutes'
-import UnsecureRoutes from './routes/UnsecureRoutes'
+import InjectUserRenderHOC from 'app/firebase/containers/InjectUserRenderHOC'
+import LoadingScreen from 'app/components/pages/misc/LoadingScreen'
+import SecureRoutesContainer from 'app/routes/SecureRoutesContainer'
+import UnsecureRoutes from 'app/routes/UnsecureRoutes'
 
-class App extends Component {
-  render () {
-    return (
-      <ThemeProvider theme={theme}>
-        <Router>
-          <Switch>
-            <InjectUserRenderHOC>
-              {(user, loading) => {
-                if (loading) return <LoadingScreen />
+const App = () => (
+  <InjectUserRenderHOC>
+    {(userSession, loading) => {
+      if (loading) return <LoadingScreen />
 
-                return user ? (
-                  <SecureRoutes user={user} />
-                ) : (
-                  <UnsecureRoutes />
-                )
-              }}
-            </InjectUserRenderHOC>
-          </Switch>
-        </Router>
-      </ThemeProvider>
-    )
-  }
-}
+      return userSession ? (
+        <SecureRoutesContainer user={userSession} />
+      ) : (
+        <UnsecureRoutes />
+      )
+    }}
+  </InjectUserRenderHOC>
+)
 
 export default App
