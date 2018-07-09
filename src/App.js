@@ -1,22 +1,23 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
+import IndexRoutes from 'app/routes/IndexRoutes'
 
-import InjectUserRenderHOC from 'app/firebase/containers/InjectUserRenderHOC'
-import LoadingScreen from 'app/components/pages/misc/LoadingScreen'
-import SecureRoutesContainer from 'app/routes/SecureRoutesContainer'
-import UnsecureRoutes from 'app/routes/UnsecureRoutes'
+import { BrowserRouter as Router } from 'react-router-dom'
+import { ThemeProvider } from 'styled-components'
 
-const App = () => (
-  <InjectUserRenderHOC>
-    {(userSession, loading) => {
-      if (loading) return <LoadingScreen />
+import theme from 'app/constants/theme'
 
-      return userSession ? (
-        <SecureRoutesContainer user={userSession} />
-      ) : (
-        <UnsecureRoutes />
-      )
-    }}
-  </InjectUserRenderHOC>
-)
+import 'normalize.css'
+
+class App extends PureComponent {
+  render () {
+    return (
+      <ThemeProvider theme={theme}>
+        <Router>
+          <IndexRoutes />
+        </Router>
+      </ThemeProvider>
+    )
+  }
+}
 
 export default App

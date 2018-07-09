@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import { PureComponent } from 'react'
 import firebase from 'firebase'
 
-class InjectUserRenderHOC extends PureComponent {
+class RenderSessionUserProps extends PureComponent {
   static propTypes = {
     children: PropTypes.any.isRequired
   }
@@ -30,4 +30,4 @@ class InjectUserRenderHOC extends PureComponent {
   }
 }
 
-export default InjectUserRenderHOC
+export default RenderSessionUserProps
