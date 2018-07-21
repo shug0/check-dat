@@ -13,7 +13,7 @@ const Img = styled.img`
   height: 50px;
 `
 
-class LoadingScreen extends Component {
+class LoadingPage extends Component {
   render () {
     return (
       <LoadingWrapper>
@@ -23,4 +23,4 @@ class LoadingScreen extends Component {
   }
 }
 
-export default LoadingScreen
+export default LoadingPage

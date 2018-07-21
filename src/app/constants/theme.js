@@ -7,20 +7,25 @@ export const theme = {
     friendsAvatar: { s: '50px' }
   },
 
+  fonts: {
+    medium: '1rem'
+  },
+
   colors: {
     background: '#eeeeee',
-    darkGrey: '#3F3F3F',
+    font: '#263238',
 
-    fonts: {
-      darkGrey: '#263238'
-    },
+    white: '#fff',
 
-    lightGrey: '#B0BEC5',
+    primary: '#263238',
+    primaryLight: '#4f5b62',
+    primaryDark: '#000a12',
 
-    ikb: '#002fa7',
+    secondary: '#651fff',
+    secondaryLight: '#a255ff',
+    secondaryDark: '#0100ca',
 
-    primary: '#2e2c43',
-    accent: '#e5b01e'
+    warning: '#B71C1C'
   }
 }
 
@@ -33,7 +38,7 @@ injectGlobal`
   body {
     font-family: 'Open Sans', sans-serif;
     background: ${theme.colors.background};
-    color: ${theme.colors.fonts.darkGrey};
+    color: ${theme.colors.font};
   }
   
   h1, h2, h3 {

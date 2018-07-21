@@ -11,7 +11,7 @@ const Content = styled.div`
   padding: 2rem;
 `
 
-class HomeScreen extends PureComponent {
+class HomePage extends PureComponent {
   static propTypes = {
     user: PropTypes.object.isRequired
   }
@@ -32,4 +32,4 @@ class HomeScreen extends PureComponent {
   }
 }
 
-export default HomeScreen
+export default HomePage

@@ -7,10 +7,10 @@ class Icon extends PureComponent {
   }
 
   render () {
-    const { name, className, ...props } = this.props
+    const { name, ...props } = this.props
 
     return (
-      <i className={`material-icons ${className}`} {...props}>{name}</i>
+      <i className={`material-icons`} {...props}>{name}</i>
     )
   }
 }

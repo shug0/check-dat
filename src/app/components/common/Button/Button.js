@@ -1,37 +1,48 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import styled, { css } from 'styled-components'
-import { Link } from 'react-router-dom'
-
-const ButtonStyle = css`
-  padding: 0.5rem 1rem;
-  color: white;
-  background: ${props => props.theme.colors.accent};
-  text-decoration: none;
-`
-
-const LinkWrapper = styled(Link)`${ButtonStyle}`
-const ButtonWrapper = styled.button`${ButtonStyle}`
+import { LinkWrapper, ButtonWrapper, VanillaLinkWrapper } from './ButtonStyles'
 
 class Button extends PureComponent {
   static propTypes = {
     children: PropTypes.node.isRequired,
     to: PropTypes.string,
-    onClick: PropTypes.func
-  }
-
-  static defaultProps = {
-    size: '20px'
+    href: PropTypes.string,
+    onClick: PropTypes.func,
+    color: PropTypes.oneOf(['primary', 'secondary', 'warning'])
   }
 
   render () {
-    const { children, to, onClick } = this.props
+    const { children, to, onClick, href, color } = this.props
 
-    return to ? (
-      <LinkWrapper to={to}>{children}</LinkWrapper>
-    ) : (
-      <ButtonWrapper onClick={onClick}>{children}</ButtonWrapper>
-    )
+    if (to) {
+      return (
+        <LinkWrapper
+          color={color}
+          to={to}>
+          {children}
+        </LinkWrapper>
+      )
+    }
+
+    if (onClick) {
+      return (
+        <ButtonWrapper
+          color={color}
+          onClick={onClick}>
+          {children}
+        </ButtonWrapper>
+      )
+    }
+
+    if (href) {
+      return (
+        <VanillaLinkWrapper
+          color={color}
+          href={href}>
+          {children}
+        </VanillaLinkWrapper>
+      )
+    }
   }
 }
 
