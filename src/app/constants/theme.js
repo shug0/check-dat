@@ -4,7 +4,8 @@ export const theme = {
   comps: {
     headerBar: { h: '50px' },
     friendsBar: { w: '80px' },
-    friendsAvatar: { s: '50px' }
+    friendsAvatar: { s: '50px' },
+    signupWrapper: { w: '500px' }
   },
 
   fonts: {
@@ -14,8 +15,12 @@ export const theme = {
   colors: {
     background: '#eeeeee',
     font: '#263238',
+    fontLight: '#a3b8c2',
 
     white: '#fff',
+
+    disabled: '#cccccc',
+    disabledDark: '#838383',
 
     primary: '#263238',
     primaryLight: '#4f5b62',

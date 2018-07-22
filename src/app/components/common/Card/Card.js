@@ -6,6 +6,11 @@ const WrapperCard = styled.div`
   background-color: white;
   padding: ${props => props.padding || '2rem'};
   margin-bottom: 1rem;
+  border-radius: 4px;
+  box-shadow: 
+    0 4px 6px rgba(50,50,93,.11), 
+    0 1px 3px rgba(0,0,0,.08);
+  ;
 `
 
 class Card extends PureComponent {
@@ -14,10 +19,10 @@ class Card extends PureComponent {
   }
 
   render () {
-    const { children } = this.props
+    const { children, ...props } = this.props
 
     return (
-      <WrapperCard>
+      <WrapperCard {...props}>
         {children}
       </WrapperCard>
     )

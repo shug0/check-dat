@@ -23,14 +23,14 @@ const ButtonStyle = css`
   ;
   margin-bottom: 1rem;
   transition: ease all 0.1s;
-  &:hover {
+  &:hover:not(:disabled) {
     transform: translateY(-1px); 
     box-shadow: 
       0 7px 14px rgba(50,50,93,.1), 
       0 3px 6px rgba(0,0,0,.08);
     ;
   }
-  &:active {
+  &:active:not(:disabled) {
     transform: translateY(1px); 
     box-shadow: 
       0 4px 6px rgba(50,50,93,.11), 
@@ -40,6 +40,10 @@ const ButtonStyle = css`
   i {
     font-size: 1em;
     margin-right: .7em;
+  }
+  :disabled {
+    color: ${({theme}) => theme.colors.disabledDark};
+    background: ${({theme}) => theme.colors.disabled};
   }
 `
 
@@ -91,15 +95,15 @@ const getStyle = ({ color }) => {
 }
 
 export const LinkWrapper = styled(Link)`
-  ${ButtonStyle} 
   ${getStyle}
+  ${ButtonStyle} 
 `
 export const ButtonWrapper = styled.button`
-  ${ButtonStyle} 
   ${getStyle}
+  ${ButtonStyle} 
 `
 
 export const VanillaLinkWrapper = styled.a`
-  ${ButtonStyle} 
   ${getStyle}
+  ${ButtonStyle} 
 `

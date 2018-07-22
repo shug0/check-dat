@@ -3,14 +3,15 @@ import PropTypes from 'prop-types'
 
 class Icon extends PureComponent {
   static propTypes = {
-    name: PropTypes.string.isRequired
+    name: PropTypes.string.isRequired,
+    className: PropTypes.string
   }
 
   render () {
-    const { name, ...props } = this.props
+    const { name, className, ...props } = this.props
 
     return (
-      <i className={`material-icons`} {...props}>{name}</i>
+      <i className={`material-icons ${className}`} {...props}>{name}</i>
     )
   }
 }

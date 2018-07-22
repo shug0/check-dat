@@ -17,7 +17,7 @@ class LoadingPage extends Component {
   render () {
     return (
       <LoadingWrapper>
-        <Img src="https://zippy.gfycat.com/SkinnySeveralAsianlion.gif" alt=""/>
+        <Img src='https://zippy.gfycat.com/SkinnySeveralAsianlion.gif' alt='' />
       </LoadingWrapper>
     )
   }

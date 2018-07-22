@@ -7,12 +7,11 @@ class Button extends PureComponent {
     children: PropTypes.node.isRequired,
     to: PropTypes.string,
     href: PropTypes.string,
-    onClick: PropTypes.func,
     color: PropTypes.oneOf(['primary', 'secondary', 'warning'])
   }
 
   render () {
-    const { children, to, onClick, href, color } = this.props
+    const { children, to, href, color, ...props } = this.props
 
     if (to) {
       return (
@@ -21,16 +20,6 @@ class Button extends PureComponent {
           to={to}>
           {children}
         </LinkWrapper>
-      )
-    }
-
-    if (onClick) {
-      return (
-        <ButtonWrapper
-          color={color}
-          onClick={onClick}>
-          {children}
-        </ButtonWrapper>
       )
     }
 
@@ -43,6 +32,15 @@ class Button extends PureComponent {
         </VanillaLinkWrapper>
       )
     }
+
+    return (
+      <ButtonWrapper
+        color={color}
+        {...props}
+      >
+        {children}
+      </ButtonWrapper>
+    )
   }
 }
 

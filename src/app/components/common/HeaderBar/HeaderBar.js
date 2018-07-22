@@ -6,10 +6,11 @@ import { key } from 'styled-theme'
 import { Link } from 'react-router-dom'
 
 import Icon from 'app/components/common/Icon'
+import Avatar from 'app/components/common/Avatar'
 
 const HeaderBarWrapper = styled.header`
   height: ${key('comps.headerBar.h')};
-  background-color: ${key('colors.darkGrey')};
+  background-color: ${key('colors.primaryDark')};
   color: white;
   
   & a {
@@ -50,7 +51,9 @@ class HeaderBar extends PureComponent {
     return (
       <HeaderBarWrapper>
         <Title to="/">Check Dat !</Title>
-        <Link to="/profile">{user.displayName}</Link>
+        <Link to="/profile">
+          <Avatar user={user} size='30px' />
+        </Link>
         <LogoutButton name='exit_to_app' onClick={() => firebase.auth().signOut()} />
       </HeaderBarWrapper>
     )
