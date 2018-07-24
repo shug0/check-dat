@@ -1,17 +1,21 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 
 import SignupOrLoginScreen from 'app/components/modules/Auth/SignupOrLoginScreen'
-import LoginContainer from 'app/components/modules/Auth/Login/LoginContainer'
-import SignupContainer from 'app/components/modules/Auth/Signup/SignupContainer'
+import SignupScreen from 'app/components/modules/Auth/Signup/SignupScreen'
+import LoginScreen from 'app/components/modules/Auth/Login/LoginScreen'
 
-const UnsecureRoutes = () => (
-  <Switch>
-    <Route exact path='/' render={() => <SignupOrLoginScreen />} />
-    <Route path='/login' render={() => <LoginContainer />} />
-    <Route path='/signup' render={() => <SignupContainer />} />
-    <Redirect to='/' />
-  </Switch>
-)
+class UnsecureRoutes extends Component {
+  render () {
+    return (
+      <Switch>
+        <Route exact path='/' component={SignupOrLoginScreen} />
+        <Route path='/login' component={LoginScreen} />
+        <Route path='/signup' component={SignupScreen} />
+        <Redirect to='/' />
+      </Switch>
+    )
+  }
+}
 
 export default UnsecureRoutes

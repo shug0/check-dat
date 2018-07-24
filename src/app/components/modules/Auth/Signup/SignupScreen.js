@@ -1,28 +1,31 @@
 import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { key } from 'styled-theme'
 
 import Card from 'app/components/common/Card/Card'
-import SignupForm from 'app/components/form/SignupForm/SignupForm'
+import SignupForm from 'app/components/modules/Auth/Signup/SignupContainer'
 
-const Wrapper = styled(Card)`
+const FormWrapper = styled(Card)`
   margin: 2rem auto;
-  max-width: ${key('comps.signupWrapper.w')};
+  width: ${key('comps.signupWrapper.w')};
   padding: 1rem 2rem;
 `
 
-class SignupScreen extends PureComponent {
-  static propTypes = {
-    initialValues: PropTypes.object
-  }
+const Wrapper = styled.section`
+  height: ${({theme}) => `calc(100% - ${theme.comps.headerBar.h})`};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 
+class SignupScreen extends PureComponent {
   render () {
-    const { initialValues } = this.props
     return (
       <Wrapper>
-        <h2>Signup</h2>
-        <SignupForm initialValues={initialValues}/>
+        <FormWrapper>
+          <h2>Signup</h2>
+          <SignupForm />
+        </FormWrapper>
       </Wrapper>
     )
   }

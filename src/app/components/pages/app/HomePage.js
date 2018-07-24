@@ -13,19 +13,19 @@ const Content = styled.div`
 
 class HomePage extends PureComponent {
   static propTypes = {
-    user: PropTypes.object.isRequired
+    dbUser: PropTypes.object.isRequired
   }
 
   render () {
-    const { user } = this.props
+    const { dbUser } = this.props
 
-    console.log({user})
+    console.log({dbUser})
 
     return (
       <Wrapper>
         <Content>
           <h1>Ici y aura les liens / musiques et autres trucs</h1>
-          {user.email}
+          {dbUser.email}
         </Content>
       </Wrapper>
     )

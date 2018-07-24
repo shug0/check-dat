@@ -17,16 +17,16 @@ const SignupForm = (props) => (
     initialValues={props.initialValues}
     validate={SignupValidationSchema}
     onSubmit={(values, { setSubmitting }) => {
-      console.log({ values })
-      setTimeout(() => {
-        setSubmitting(false)
-      }, 1000)
+      props.handleSubmit(values)
+        .then(() => {
+          console.log("C'est une réussite")
+        })
     }}
     render={({ isSubmitting }) => (
       <Form>
         <FormWrapper>
           <Field name="email" label="Email" component={Input} />
-          <Field name="pseudo" label="Pseudo" component={Input} />
+          <Field name="displayName" label="Display Name" component={Input} />
         </FormWrapper>
 
         <Button color='primary' type='submit' disabled={isSubmitting}>
@@ -38,7 +38,8 @@ const SignupForm = (props) => (
 )
 
 SignupForm.propTypes = {
-  initialValues: PropTypes.object
+  initialValues: PropTypes.object,
+  handleSubmit: PropTypes.func
 }
 
 export default SignupForm

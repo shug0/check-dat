@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import styled from 'styled-components'
 
-import LoginContainer from './Login/LoginContainer'
+import Button from 'app/components/common/Button/Button'
 
 const Wrapper = styled.section`
   display: flex;
@@ -16,7 +16,8 @@ class SignupOrLoginScreen extends PureComponent {
     return (
       <Wrapper>
         <h2>Signup or Login</h2>
-        <LoginContainer />
+        <Button to='/login'>Login</Button>
+        <Button to='/signup'>Signup</Button>
       </Wrapper>
     )
   }

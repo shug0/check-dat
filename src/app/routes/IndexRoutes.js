@@ -1,11 +1,11 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 
 import RenderSessionUserProps from 'app/firebase/containers/RenderSessionUserProps'
 import LoadingPage from 'app/components/pages/misc/LoadingPage'
 import SecureRoutesContainer from 'app/routes/SecureRoutesContainer'
 import UnsecureRoutes from 'app/routes/UnsecureRoutes'
 
-class IndexRoutes extends PureComponent {
+class IndexRoutes extends Component {
   render () {
     return (
       <RenderSessionUserProps>
@@ -13,7 +13,7 @@ class IndexRoutes extends PureComponent {
           if (loading) return <LoadingPage />
 
           return userSession ? (
-            <SecureRoutesContainer user={userSession} />
+            <SecureRoutesContainer userSession={userSession} />
           ) : (
             <UnsecureRoutes />
           )

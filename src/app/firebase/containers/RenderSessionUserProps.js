@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
 import { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 import firebase from 'firebase'
 
 class RenderSessionUserProps extends PureComponent {
