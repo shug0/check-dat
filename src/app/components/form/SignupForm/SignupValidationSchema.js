@@ -7,5 +7,10 @@ export default (values) => {
   ) {
     errors.email = 'Invalid email address'
   }
+
+  if (!values.password) {
+    errors.password = 'Required'
+  }
+
   return errors
 }

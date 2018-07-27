@@ -5,7 +5,7 @@ export const theme = {
     headerBar: { h: '50px' },
     friendsBar: { w: '80px' },
     friendsAvatar: { s: '50px' },
-    signupWrapper: { w: '500px' }
+    signupWrapper: { w: '400px' }
   },
 
   fonts: {
@@ -15,7 +15,7 @@ export const theme = {
   colors: {
     background: '#eeeeee',
     font: '#263238',
-    fontLight: '#a3b8c2',
+    fontLight: '#85979f',
 
     white: '#fff',
 

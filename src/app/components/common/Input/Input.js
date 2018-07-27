@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { transparentize } from 'polished'
-import { Field } from 'formik'
 
 const LabelWrapper = styled.label`
   display: block;
@@ -11,7 +10,7 @@ const LabelWrapper = styled.label`
   color: ${({ theme, error }) => error ? theme.colors.warning : theme.colors.fontLight};
 `
 
-const InputWrapper = styled(Field)`
+const InputWrapper = styled.input`
   border-radius: 4px;
   background: white;
   padding: 0.8rem 1rem;
@@ -44,23 +43,28 @@ class Input extends PureComponent {
   static propTypes = {
     field: PropTypes.object.isRequired,
     form: PropTypes.object.isRequired,
+    type: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired
   }
 
+  static defaultProps = {
+    type: 'text'
+  }
+
   render () {
-    const { field, label, form, ...props } = this.props
+    const { field, label, form, type } = this.props
     const { touched, errors } = form
     const { name } = field
 
     return (
-      <div>
+      <React.Fragment>
         {touched[name] && errors[name] ? (
           <LabelWrapper for={name} error>{label} : {errors[name]}</LabelWrapper>
         ) : (
           <LabelWrapper for={name}>{label}</LabelWrapper>
         )}
-        <InputWrapper {...field} {...props} error={errors[name]} />
-      </div>
+        <InputWrapper {...field} type={type} error={errors[name]} />
+      </React.Fragment>
     )
   }
 }

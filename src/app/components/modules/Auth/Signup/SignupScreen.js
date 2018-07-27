@@ -2,10 +2,9 @@ import React, { PureComponent } from 'react'
 import styled from 'styled-components'
 import { key } from 'styled-theme'
 
-import Card from 'app/components/common/Card/Card'
 import SignupForm from 'app/components/modules/Auth/Signup/SignupContainer'
 
-const FormWrapper = styled(Card)`
+const FormWrapper = styled.div`
   margin: 2rem auto;
   width: ${key('comps.signupWrapper.w')};
   padding: 1rem 2rem;
