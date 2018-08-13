@@ -1,68 +1,62 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Form, Field, Formik } from 'formik'
 import styled from 'styled-components'
-import ReCAPTCHA from 'react-google-recaptcha'
-
 
 import Button from 'app/components/common/Button/Button'
 import Input from 'app/components/common/Input/Input'
-import SignupValidationSchema from './SignupValidationSchema'
+import signupValidationSchema from './SignupValidationSchema'
 
 const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
 `
 
-export default class SignupForm extends PureComponent {
-  constructor (props) {
-    super(props)
-    this.captcha = React.createRef()
-  }
+const ErrorWrapper = styled.p`
+  margin-bottom: 1rem;
+  color: ${({theme}) => theme.colors.warning};
+`
 
+export default class SignupForm extends Component {
   static defaultProps = {
     initialValues: {
+      pseudo: '',
       email: '',
       password: '',
-      captcha: ''
+      code: ''
     }
   }
 
   static propTypes = {
+    error: PropTypes.any,
     initialValues: PropTypes.object,
     handleSubmit: PropTypes.func
   }
 
-  componentDidMount () {
-    // this.captcha.current.execute()
-  }
-
   render () {
-    const { initialValues, handleSubmit } = this.props
+    const { initialValues, handleSubmit, error } = this.props
+
+    console.log({ error })
 
     return (
       <Formik
         initialValues={initialValues}
-        validate={SignupValidationSchema}
+        validationSchema={signupValidationSchema}
         onSubmit={(values, { setSubmitting }) => {
-          handleSubmit(values)
-            .then(() => {
-              alert('💃')
-            })
+          handleSubmit(values, setSubmitting)
         }}
         render={({isSubmitting}) => (
           <Form>
+            {error && (
+              <ErrorWrapper>
+                {error.message}
+              </ErrorWrapper>
+            )}
             <FormWrapper>
+              <Field name="pseudo" type="text" label="Pseudo" component={Input}/>
               <Field name="email" type="email" label="Email" component={Input}/>
               <Field name="password" type="password" label="Password" component={Input}/>
-              <Field name="captcha" render={({ form }) => (
-                <ReCAPTCHA
-                  ref={this.captcha}
-                  size="invisible"
-                  sitekey="6LdcHmYUAAAAAHPXmJCKktgyJcvhRWJHl3QyhcOy"
-                  onChange={value => form.setFieldValue('captcha', value)}
-                />
-              )}/>
+              <Field name="code" type="text" label="Alpha Code" component={Input}/>
             </FormWrapper>
 
             <Button color='primary' type='submit' disabled={isSubmitting}>

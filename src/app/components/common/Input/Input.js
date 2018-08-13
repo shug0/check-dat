@@ -63,7 +63,7 @@ class Input extends PureComponent {
         ) : (
           <LabelWrapper for={name}>{label}</LabelWrapper>
         )}
-        <InputWrapper {...field} type={type} error={errors[name]} />
+        <InputWrapper {...field} type={type} error={touched[name] && errors[name]} />
       </React.Fragment>
     )
   }

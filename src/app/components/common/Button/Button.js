@@ -12,13 +12,14 @@ class Button extends PureComponent {
 
   render () {
     const { children, to, href, color, ...props } = this.props
+    const content = props.disabled ? 'Loading...' : children
 
     if (to) {
       return (
         <LinkWrapper
           color={color}
           to={to}>
-          {children}
+          {content}
         </LinkWrapper>
       )
     }
@@ -28,7 +29,7 @@ class Button extends PureComponent {
         <VanillaLinkWrapper
           color={color}
           href={href}>
-          {children}
+          {content}
         </VanillaLinkWrapper>
       )
     }
@@ -38,7 +39,7 @@ class Button extends PureComponent {
         color={color}
         {...props}
       >
-        {children}
+        {content}
       </ButtonWrapper>
     )
   }
