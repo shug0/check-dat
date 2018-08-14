@@ -19,8 +19,6 @@ class HomePage extends PureComponent {
   render () {
     const { dbUser } = this.props
 
-    console.log({dbUser})
-
     return (
       <Wrapper>
         <Content>

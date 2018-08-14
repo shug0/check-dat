@@ -5,7 +5,9 @@ const signupValidationSchema = Yup.object().shape({
     .required('Choose a cool pseudo')
     .min(3, 'More than 3 char please')
     .max(20, '20 char is enough bro'),
-  email: Yup.string().email('A valid mail please'),
+  email: Yup.string()
+    .required('Where I send spam without email ?')
+    .email('A valid mail please'),
   password: Yup.string()
     .required('We need a password')
     .min(7, 'A bit secure please (+7 char)')

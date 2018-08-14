@@ -1,6 +1,4 @@
 import React, { PureComponent } from 'react'
-import axios from 'axios'
-
 import base from 'app/firebase/rebase'
 import SignupForm from 'app/components/form/SignupForm/SignupForm'
 

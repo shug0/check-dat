@@ -1,12 +1,34 @@
-import React, { PureComponent } from 'react'
-// import firebase from 'firebase'
+import React, { Component } from 'react'
+import base from 'app/firebase/rebase'
 
-class LoginContainer extends PureComponent {
+import LoginForm from 'app/components/form/LoginForm/LoginForm'
+
+class LoginContainer extends Component {
+  state = {
+    error: false
+  }
+
+  handleLogin = (values, setSubmitting) => (
+    base.initializedApp.auth().signInWithEmailAndPassword(
+      values.email,
+      values.password
+    )
+      .then((infos) => {
+        console.log('User successfully logged', infos)
+      })
+      .catch(error => {
+        console.log('NOPE', error)
+        this.setState({ error })
+        setSubmitting(false)
+      })
+  )
+
   render () {
     return (
-      <div>
-        Login Form
-      </div>
+      <LoginForm
+        error={this.state.error}
+        handleSubmit={this.handleLogin}
+      />
     )
   }
 }

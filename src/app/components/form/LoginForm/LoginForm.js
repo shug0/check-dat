@@ -5,11 +5,14 @@ import styled from 'styled-components'
 
 import Button from 'app/components/common/Button/Button'
 import Input from 'app/components/common/Input/Input'
-import signupValidationSchema from './SignupValidationSchema'
+import loginValidationSchema from './loginValidationSchema'
 
 const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  button {
+    margin-right: 1rem;
+  }
 `
 
 const ErrorWrapper = styled.p`
@@ -23,13 +26,11 @@ const ButtonWrapper = styled.div`
   }
 `
 
-export default class SignupForm extends Component {
+export default class LoginForm extends Component {
   static defaultProps = {
     initialValues: {
-      pseudo: '',
       email: '',
-      password: '',
-      code: ''
+      password: ''
     }
   }
 
@@ -45,7 +46,7 @@ export default class SignupForm extends Component {
     return (
       <Formik
         initialValues={initialValues}
-        validationSchema={signupValidationSchema}
+        validationSchema={loginValidationSchema}
         onSubmit={(values, { setSubmitting }) => {
           handleSubmit(values, setSubmitting)
         }}
@@ -57,19 +58,17 @@ export default class SignupForm extends Component {
               </ErrorWrapper>
             )}
             <FormWrapper>
-              <Field name="pseudo" type="text" label="Pseudo" component={Input}/>
               <Field name="email" type="email" label="Email" component={Input}/>
               <Field name="password" type="password" label="Password" component={Input}/>
-              <Field name="code" type="text" label="Alpha Code" component={Input}/>
             </FormWrapper>
 
             <ButtonWrapper>
               <Button color='primary' type='submit' disabled={isSubmitting}>
-                Submit
+                Login
               </Button>
 
-              <Button to='/login' disabled={isSubmitting}>
-                Login
+              <Button to='/signup'>
+                Signup
               </Button>
             </ButtonWrapper>
           </Form>
