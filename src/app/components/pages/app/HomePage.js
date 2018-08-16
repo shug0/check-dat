@@ -23,7 +23,7 @@ class HomePage extends PureComponent {
       <Wrapper>
         <Content>
           <h1>Ici y aura les liens / musiques et autres trucs</h1>
-          {dbUser.email}
+          <p>Welcome {dbUser.pseudo}</p>
         </Content>
       </Wrapper>
     )

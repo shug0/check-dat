@@ -21,8 +21,10 @@ const ErrorWrapper = styled.p`
 `
 
 const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
   button {
-    margin-right: 0.7rem;
+    margin-left: 0.7rem;
   }
 `
 
@@ -63,12 +65,12 @@ export default class LoginForm extends Component {
             </FormWrapper>
 
             <ButtonWrapper>
-              <Button color='primary' type='submit' disabled={isSubmitting}>
-                Login
-              </Button>
-
               <Button to='/signup'>
                 Signup
+              </Button>
+
+              <Button color='primary' type='submit' disabled={isSubmitting}>
+                Login
               </Button>
             </ButtonWrapper>
           </Form>

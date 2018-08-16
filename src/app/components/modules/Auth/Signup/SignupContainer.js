@@ -7,8 +7,15 @@ class SignupContainer extends PureComponent {
     error: false
   }
 
-  addUserInDB = (values) => new Promise((resolve, reject) => {
-    base.addToCollection('users', values)
+  addUserInDB = (user, formValues) => new Promise((resolve, reject) => {
+    const { email, uid } = user.providerData[0]
+    const { pseudo } = formValues
+    const userDataToStore = {
+      uid,
+      pseudo,
+      email
+    }
+    base.addToCollection('users', userDataToStore, user.uid)
       .then(response => {
         resolve(response)
       }).catch(err => {
@@ -25,9 +32,7 @@ class SignupContainer extends PureComponent {
 
   handleSignup = (values, setSubmitting) => {
     this.createUserInAuth(values)
-      .then((infos) => {
-        console.log('User successfully created', infos)
-      })
+      .then((user) => this.addUserInDB(user, values))
       .catch(error => {
         this.setState({ error })
         setSubmitting(false)
