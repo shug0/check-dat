@@ -15,10 +15,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [X] React Storybook
 
 ### Features
-- [X] Auth with Google/Twitter
-- [X] Users session management | Logout
+- [X] Signup & Login with Firebase Email + Password method
+- [X] Users session management && Logout
 - [ ] Friends 
-  * [X] Choosing DB scheme
+  * [ ] Choosing DB scheme
   * [ ] Display friends in left sidebar
   * [ ] Search people
   * [ ] Add a people to the friendlist
@@ -34,22 +34,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   * [ ] English
 
 ### Design
-- [ ] Finding Inspirations 
-- [ ] Fonts
-- [ ] Colors Scheme
+- [X] Finding Inspirations 
+- [X] Fonts
+- [X] Colors Scheme
+- [ ] Animations
 
-
-## Databse Scheme
-The app is using firebase for storing data, wich is implicating somes modeling constraints.
-The current scheme is :
-
-- users
-  * full : { ...fullUserInfos }
-  * short: { id: 'username' }
-- friends : {
-  * user1: {[ { ...useFullFriendInfo } ]}
-  * user2: {[ { ...useFullFriendInfo } ]}
-- posts : **WIP**
-  
-  
+## Database Scheme
+The app is using firebase store collection for storing data, wich is implicating somes modeling constraints. 
   
