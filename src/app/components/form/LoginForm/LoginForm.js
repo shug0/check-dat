@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { Form, Field, Formik } from 'formik'
 import styled from 'styled-components'
 
-import Button from 'app/components/common/Button/Button'
-import Input from 'app/components/common/Input/Input'
+import { Button, Input } from 'app/components/common'
+
 import loginValidationSchema from './loginValidationSchema'
 
 const FormWrapper = styled.div`

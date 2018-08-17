@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import styled from 'styled-components'
 
-import Button from 'app/components/common/Button/Button'
+import Button from 'app/components/common/Button'
 
 const Wrapper = styled.section`
   display: flex;

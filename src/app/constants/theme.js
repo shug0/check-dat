@@ -9,13 +9,14 @@ export const theme = {
   },
 
   fonts: {
-    medium: '1rem'
+    medium: '1rem',
+    small: '0.8rem'
   },
 
   colors: {
     background: '#eeeeee',
     font: '#263238',
-    fontLight: '#85979f',
+    fontLight: '#7a8b93',
 
     white: '#fff',
 

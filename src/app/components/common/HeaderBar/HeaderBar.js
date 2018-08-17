@@ -40,6 +40,10 @@ const LogoutButton = styled(Icon)`
   cursor: pointer;
 `
 
+const MenuLink = styled(Link)`
+  padding: 1rem 2rem;
+`
+
 class HeaderBar extends PureComponent {
   static propTypes = {
     user: PropTypes.object.isRequired
@@ -51,6 +55,9 @@ class HeaderBar extends PureComponent {
     return (
       <HeaderBarWrapper>
         <Title to="/">Check Dat !</Title>
+        <MenuLink to="/friends">
+          Friends
+        </MenuLink>
         <Link to="/profile">
           <Avatar user={user} size='30px' />
         </Link>
