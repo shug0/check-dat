@@ -41,7 +41,7 @@ class SignupOrLoginScreen extends PureComponent {
         <Header>
           <h2>Friends Screen</h2>
           <AddButton color='primary'>
-            Find Friend
+            Add Friend
           </AddButton>
         </Header>
         {friends.length ? (
