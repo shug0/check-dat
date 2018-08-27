@@ -1,11 +1,13 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Button } from 'app/components/common'
+import { Button, Card, Icon } from 'app/components/common/index'
 
-import FriendItem from './FriendItem'
+import FriendItem from './FriendItem/index'
 
-const Wrapper = styled.section``
+const Wrapper = styled.section`
+  width: 100%;
+`
 
 const Header = styled.header`
   display: flex;
@@ -24,7 +26,7 @@ const FriendList = styled.div`
   justify-content: space-between;
 `
 
-class SignupOrLoginScreen extends PureComponent {
+class FriendsListScreen extends PureComponent {
   static propTypes = {
     friends: PropTypes.array
   }
@@ -39,8 +41,9 @@ class SignupOrLoginScreen extends PureComponent {
     return (
       <Wrapper>
         <Header>
-          <h2>Friends Screen</h2>
-          <AddButton color='primary'>
+          <h2>Friends List</h2>
+          <AddButton color='primary' to='friends/add'>
+            <Icon name='person_add' size='1.3rem' />
             Add Friend
           </AddButton>
         </Header>
@@ -49,11 +52,11 @@ class SignupOrLoginScreen extends PureComponent {
             {friends.map(friend => <FriendItem key={friend.uid} friend={friend} />)}
           </FriendList>
         ) : (
-          <span>You have no friends. ¯\_(ツ)_/¯</span>
+          <Card>You have no friends. ¯\_(ツ)_/¯</Card>
         )}
       </Wrapper>
     )
   }
 }
 
-export default SignupOrLoginScreen
+export default FriendsListScreen

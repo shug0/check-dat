@@ -8,7 +8,7 @@ import FriendsPage from 'app/components/pages/app/FriendsPage'
 const SecureRoutes = ({ dbUser }) => (
   <Switch>
     <Route exact path='/' render={() => <HomePage dbUser={dbUser} />} />
-    <Route exact path='/friends' render={() => <FriendsPage dbUser={dbUser} />} />
+    <Route path='/friends' render={() => <FriendsPage dbUser={dbUser} />} />
     <Redirect to='/' />
   </Switch>
 )

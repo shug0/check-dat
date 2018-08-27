@@ -1,5 +1,10 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
+
+const IconWrapper = styled.i`
+  font-size: ${props => props.size || '1rem'} !important;
+`
 
 class Icon extends PureComponent {
   static propTypes = {
@@ -11,7 +16,7 @@ class Icon extends PureComponent {
     const { name, className, ...props } = this.props
 
     return (
-      <i className={`material-icons ${className}`} {...props}>{name}</i>
+      <IconWrapper className={`material-icons ${className}`} {...props}>{name}</IconWrapper>
     )
   }
 }

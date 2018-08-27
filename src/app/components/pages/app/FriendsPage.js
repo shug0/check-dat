@@ -1,30 +1,17 @@
-import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import FriendsContainer from 'app/components/modules/Friends/FriendsContainer'
+import React, { Component } from 'react'
+import { Switch, Route } from 'react-router-dom'
+import { Wrapper } from 'app/components/common'
+import FriendsListContainer from 'app/components/modules/Friends/FriendsList/FriendsListContainer'
+import FriendsAddContainer from 'app/components/modules/Friends/FriendsAdd/FriendsAddContainer'
 
-const Wrapper = styled.section`
-  display: flex;
-  height: calc(100% - ${props => props.theme.comps.headerBar.h});
-`
-
-const Content = styled.div`
-  padding: 2rem;
-`
-
-class HomePage extends PureComponent {
-  static propTypes = {
-    dbUser: PropTypes.object.isRequired
-  }
-
+class HomePage extends Component {
   render () {
-    const { dbUser } = this.props
-
     return (
       <Wrapper>
-        <Content>
-          <FriendsContainer />
-        </Content>
+        <Switch>
+          <Route exact path='/friends' component={FriendsListContainer} />
+          <Route path='/friends/add' component={FriendsAddContainer} />
+        </Switch>
       </Wrapper>
     )
   }

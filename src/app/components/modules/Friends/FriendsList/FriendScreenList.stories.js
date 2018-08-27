@@ -3,7 +3,7 @@ import Chance from 'chance'
 import { storiesOf } from '@storybook/react'
 
 import { StoryDecorator } from 'stories/decorators'
-import FriendsScreen from './FriendsScreen'
+import FriendsScreen from './FriendsListScreen'
 
 const chance = new Chance()
 
@@ -12,7 +12,7 @@ const friends = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
   email: chance.email()
 }))
 
-storiesOf('Friends', module)
+storiesOf('Friends List', module)
   .addDecorator(story => (
     <StoryDecorator>
       {story()}

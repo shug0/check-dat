@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { Card, Avatar } from 'app/components/common'
+import { Card, Avatar } from 'app/components/common/index'
 
 const Wrapper = styled(Card)`
   display: flex;

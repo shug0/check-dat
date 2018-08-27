@@ -1,20 +1,20 @@
 import React, { Component } from 'react'
 // import base from 'app/firebase/rebase'
 
-import FriendsScreen from './FriendsScreen'
+import FriendsAddScreen from './FriendsAddScreen'
 
-class FriendsContainer extends Component {
+class FriendsAddContainer extends Component {
   state = {
     error: false
   }
 
   render () {
     return (
-      <FriendsScreen
+      <FriendsAddScreen
         error={this.state.error}
       />
     )
   }
 }
 
-export default FriendsContainer
+export default FriendsAddContainer
