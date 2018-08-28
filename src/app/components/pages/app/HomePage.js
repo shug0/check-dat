@@ -1,14 +1,10 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { Wrapper, Card } from 'app/components/common'
 
-const Wrapper = styled.section`
-  display: flex;
-  height: calc(100% - ${props => props.theme.comps.headerBar.h});
-`
-
-const Content = styled.div`
-  padding: 2rem;
+const Content = styled(Card)`
+  width: 100%;
 `
 
 class HomePage extends PureComponent {
