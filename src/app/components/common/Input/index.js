@@ -1,3 +1,9 @@
-import Input from './Input'
+import FormInput from './FormInput'
+import { InputWrapper, LabelWrapper } from './styledComponents'
 
-export default Input
+export default FormInput
+
+export {
+  InputWrapper as Input,
+  LabelWrapper as Label
+}

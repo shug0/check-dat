@@ -16,7 +16,7 @@ class Avatar extends PureComponent {
     const { user, size } = this.props
 
     return (
-      <ReactAvatar round name={user.email} size={size} />
+      <ReactAvatar round name={user.pseudo || user.email} size={size} />
     )
   }
 }

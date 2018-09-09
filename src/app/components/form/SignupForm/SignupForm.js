@@ -4,7 +4,7 @@ import { Form, Field, Formik } from 'formik'
 import styled from 'styled-components'
 
 import Button from 'app/components/common/Button/Button'
-import Input from 'app/components/common/Input/Input'
+import FormInput from 'app/components/common/Input/FormInput'
 import signupValidationSchema from './SignupValidationSchema'
 
 const FormWrapper = styled.div`
@@ -59,10 +59,10 @@ export default class SignupForm extends Component {
               </ErrorWrapper>
             )}
             <FormWrapper>
-              <Field name="pseudo" type="text" label="Pseudo" component={Input}/>
-              <Field name="email" type="email" label="Email" component={Input}/>
-              <Field name="password" type="password" label="Password" component={Input}/>
-              <Field name="code" type="text" label="Alpha Code" component={Input}/>
+              <Field name="pseudo" type="text" label="Pseudo" component={FormInput}/>
+              <Field name="email" type="email" label="Email" component={FormInput}/>
+              <Field name="password" type="password" label="Password" component={FormInput}/>
+              <Field name="code" type="text" label="Alpha Code" component={FormInput}/>
             </FormWrapper>
 
             <ButtonWrapper>

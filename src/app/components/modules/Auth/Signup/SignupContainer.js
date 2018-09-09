@@ -8,12 +8,10 @@ class SignupContainer extends PureComponent {
   }
 
   addUserInDB = (user, formValues) => new Promise((resolve, reject) => {
-    const { email, uid } = user.providerData[0]
-    const { pseudo } = formValues
     const userDataToStore = {
-      uid,
-      pseudo,
-      email
+      uid: user.uid,
+      pseudo: formValues.pseudo,
+      email: user.providerData[0].email
     }
     base.addToCollection('users', userDataToStore, user.uid)
       .then(response => {

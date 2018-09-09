@@ -1,55 +1,60 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { Button, Card, Icon } from 'app/components/common/index'
+import { Card, Icon } from 'app/components/common/index'
+import { toast } from 'react-toastify'
 
+import AddFriendModalContainer from '../AddFriendModal/AddFriendModalContainer'
+import { Wrapper, Header, AddButton, FriendList } from './StyledComponents'
 import FriendItem from './FriendItem/index'
 
-const Wrapper = styled.section`
-  width: 100%;
-`
-
-const Header = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`
-
-const AddButton = styled(Button)`
-  margin-bottom: 0;
-  font-size: ${({theme}) => theme.fonts.small};
-`
-
-const FriendList = styled.div`
-  display: flex;
-  flex-flow: wrap;
-  justify-content: space-between;
-`
-
-class FriendsListScreen extends PureComponent {
+class FriendsListScreen extends Component {
   static propTypes = {
-    friends: PropTypes.array
+    addFriend: PropTypes.func.isRequired,
+    removeFriend: PropTypes.func.isRequired,
+    friends: PropTypes.object.isRequired
   }
 
-  static defaultProps = {
-    friends: []
+  state = { isModalOpen: false }
+
+  closeModal = () => this.setState({ isModalOpen: false })
+  openModal = () => this.setState({ isModalOpen: true })
+
+  addFriendAndCloseModal = (friend) => {
+    this.props.addFriend(friend)
+    toast.success(`${friend.pseudo} was correctly added to your friends.`)
+    this.closeModal()
   }
 
   render () {
-    const { friends } = this.props
+    const { friends, removeFriend } = this.props
+    const friendsArray = Object.keys(friends).map(key => friends[key])
 
     return (
       <Wrapper>
         <Header>
           <h2>Friends List</h2>
-          <AddButton color='primary' to='friends/add'>
+          <AddButton color='primary' onClick={this.openModal}>
             <Icon name='person_add' size='1.3rem' />
             Add Friend
           </AddButton>
         </Header>
-        {friends.length ? (
+
+        <AddFriendModalContainer
+          isOpen={this.state.isModalOpen}
+          onRequestClose={this.closeModal}
+          addFriend={this.addFriendAndCloseModal}
+          friends={friends}
+        />
+
+        {friendsArray.length ? (
           <FriendList>
-            {friends.map(friend => <FriendItem key={friend.uid} friend={friend} />)}
+            {friendsArray.map(friend => (
+              <FriendItem
+                key={friend.uid}
+                user={friend}
+                removeFriend={removeFriend}
+              />
+            ))}
           </FriendList>
         ) : (
           <Card>You have no friends. ¯\_(ツ)_/¯</Card>

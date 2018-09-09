@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Form, Field, Formik } from 'formik'
 import styled from 'styled-components'
 
-import { Button, Input } from 'app/components/common'
+import { Button, FormInput } from 'app/components/common'
 
 import loginValidationSchema from './loginValidationSchema'
 
@@ -60,8 +60,8 @@ export default class LoginForm extends Component {
               </ErrorWrapper>
             )}
             <FormWrapper>
-              <Field name="email" type="email" label="Email" component={Input}/>
-              <Field name="password" type="password" label="Password" component={Input}/>
+              <Field name="email" type="email" label="Email" component={FormInput}/>
+              <Field name="password" type="password" label="Password" component={FormInput}/>
             </FormWrapper>
 
             <ButtonWrapper>

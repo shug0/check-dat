@@ -1,4 +1,8 @@
 import React, { Component } from 'react'
+import { ToastContainer } from 'react-toastify'
+
+import 'react-toastify/dist/ReactToastify.css'
+
 import IndexRoutes from 'app/routes/IndexRoutes'
 
 import { BrowserRouter as Router } from 'react-router-dom'
@@ -13,7 +17,10 @@ class App extends Component {
     return (
       <ThemeProvider theme={theme}>
         <Router>
-          <IndexRoutes />
+          <React.Fragment>
+            <ToastContainer />
+            <IndexRoutes />
+          </React.Fragment>
         </Router>
       </ThemeProvider>
     )

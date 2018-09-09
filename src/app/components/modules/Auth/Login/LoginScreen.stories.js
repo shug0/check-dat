@@ -11,7 +11,7 @@ const props = {
 
 storiesOf('Screens', module)
   .addDecorator(story => (
-    <StoryDecorator>
+    <StoryDecorator noWrapper>
       {story()}
     </StoryDecorator>
   ))

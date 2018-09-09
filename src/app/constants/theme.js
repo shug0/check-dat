@@ -14,6 +14,10 @@ export const theme = {
     small: '0.8rem'
   },
 
+  fontsWeight: {
+    light: 100
+  },
+
   colors: {
     background: '#eeeeee',
     font: '#263238',

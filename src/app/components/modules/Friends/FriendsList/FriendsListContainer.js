@@ -1,17 +1,44 @@
 import React, { Component } from 'react'
-// import base from 'app/firebase/rebase'
+import base from 'app/firebase/rebase'
 
 import FriendsScreen from './FriendsListScreen'
 
 class FriendsListContainer extends Component {
   state = {
-    error: false
+    friends: {}
+  }
+
+  componentDidMount () {
+    const uid = base.initializedApp.auth().currentUser.uid
+
+    base.syncDoc(`friends/${uid}`, {
+      context: this,
+      state: 'friends'
+    })
+  }
+
+  addFriend = (newFriend) => {
+    const { friends } = this.state
+    const mutedFriends = {
+      ...friends,
+      [newFriend.uid]: newFriend
+    }
+    this.setState({ friends: mutedFriends })
+  }
+
+  removeFriend = (uid) => {
+    const { friends } = this.state
+    const mutedFriends = { ...friends }
+    delete mutedFriends[uid]
+    this.setState({ friends: mutedFriends })
   }
 
   render () {
     return (
       <FriendsScreen
-        error={this.state.error}
+        friends={this.state.friends}
+        addFriend={this.addFriend}
+        removeFriend={this.removeFriend}
       />
     )
   }

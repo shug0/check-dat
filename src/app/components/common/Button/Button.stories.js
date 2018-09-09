@@ -1,10 +1,14 @@
 import React from 'react'
+import styled from 'styled-components'
 import { storiesOf } from '@storybook/react'
 
 import { StoryDecorator } from 'stories/decorators'
 
-import Button from './Button'
-import Icon from '../Icon/Icon'
+import { Button, Icon } from 'app/components/common'
+const ButtonsWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+`
 
 storiesOf('Common', module)
   .addDecorator(story => (
@@ -13,7 +17,7 @@ storiesOf('Common', module)
     </StoryDecorator>
   ))
   .add('Button', () => (
-    <React.Fragment>
+    <ButtonsWrapper>
       <div>
         <Button onClick={() => {}}>Submit</Button>
       </div>
@@ -29,5 +33,5 @@ storiesOf('Common', module)
       <div>
         <Button color='warning' href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'>{"Just Don't"}</Button>
       </div>
-    </React.Fragment>
+    </ButtonsWrapper>
   ))

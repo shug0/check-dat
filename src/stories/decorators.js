@@ -2,24 +2,25 @@ import React from 'react'
 import theme from 'app/constants/theme'
 import PropTypes from 'prop-types'
 
-import styled, { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import { MemoryRouter } from 'react-router-dom'
+import { Wrapper } from 'app/components/common'
 
-const Wrapper = styled.section`
-  padding: ${props => props.withoutWrapper ? '0' : '3rem'};
-`
-
-export const StoryDecorator = ({ children, withoutWrapper }) => (
-  <Wrapper withoutWrapper={withoutWrapper}>
-    <MemoryRouter initialEntries={['/']}>
-      <ThemeProvider theme={theme}>
-        {children}
-      </ThemeProvider>
-    </MemoryRouter>
-  </Wrapper>
+export const StoryDecorator = ({ children, noWrapper }) => (
+  <MemoryRouter initialEntries={['/']}>
+    <ThemeProvider theme={theme}>
+      {noWrapper ? (
+        children
+      ) : (
+        <Wrapper>
+          {children}
+        </Wrapper>
+      )}
+    </ThemeProvider>
+  </MemoryRouter>
 )
 
 StoryDecorator.propTypes = {
-  withoutWrapper: PropTypes.bool,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  noWrapper: PropTypes.bool
 }

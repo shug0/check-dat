@@ -8,7 +8,7 @@ import HeaderBar from './HeaderBar'
 
 storiesOf('Common', module)
   .addDecorator(story => (
-    <StoryDecorator withoutWrapper>
+    <StoryDecorator noWrapper>
       {story()}
     </StoryDecorator>
   ))

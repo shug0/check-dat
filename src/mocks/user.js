@@ -17,5 +17,6 @@ export default {
   validSince: '1520294919',
   lastLoginAt: '1530019410000',
   createdAt: '1520294919000',
-  screenName: 'Shug0'
+  screenName: 'Shug0',
+  email: 'thomas@needacoffe.fr '
 }
